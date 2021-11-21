@@ -1,15 +1,14 @@
 const mainImageDOM = document.querySelector('.main-image');
 const mainDivDOM = document.querySelector('.my-center');
 const pettingDOM = document.querySelector('.petting');
-const numberOfPatDOM = document.querySelector('#number-of-pat');
+const petCountDOM = document.querySelector('#pet-count');
 const messageDOM = document.querySelector('#message');
 
 
-//window.localStorage.removeItem('num');
-/* onload */
-let num = window.localStorage.getItem('num') ?? 0;
+
+let petCount = window.localStorage.getItem('petCount') ?? 0;
 const lastDay = window.localStorage.getItem('lastDay');
-numberOfPatDOM.textContent = num;
+petCountDOM.textContent = petCount;
 if (!lastDay) {
     messageDOM.textContent = `Who are you?`;
 }
@@ -25,11 +24,11 @@ else {
 }
 
 mainDivDOM.addEventListener('click', () => {
-    window.localStorage.setItem('num', Number(num) + 1);
+    window.localStorage.setItem('petCount', Number(petCount) + 1);
     window.localStorage.setItem('lastDay', Date.now());
-    num++;
+    petCount++;
 
-    numberOfPatDOM.textContent = window.localStorage.getItem('num');
+    petCountDOM.textContent = window.localStorage.getItem('petCount');
     messageDOM.textContent = `Humu humu`;
 
     mainDivDOM.style.pointerEvents = 'none';
